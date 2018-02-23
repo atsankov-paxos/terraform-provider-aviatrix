@@ -1,16 +1,36 @@
-variable "region" {}
+variable "region" {
+  default = "us-east-1"
+}
 
-variable "vpc" {}
+variable "aws_profile" {
+  default = "default"
+}
 
-variable "subnet" {}
+variable "vpc" {
+  default = "vpc-d02939a8"
+}
 
-variable "keypair" {}
+variable "subnet" {
+  default = "subnet-9a1568a5"
+}
 
-variable "ec2role" {}
+variable "keypair" {
+  default = "atsankov"
+}
+
+variable "ec2role" {
+  default = "aviatrix-role-ec2"
+}
 
 #
 # Defaults
 #
+
+provider "aws" {
+  region  = "${var.region}"
+  profile = "${var.aws_profile}"
+}
+
 
 # This is the default root volume size as suggested by Aviatrix
 variable "root_volume_size" {
@@ -31,7 +51,7 @@ variable "instance_type" {
 
 variable "images" {
   default = {
-    us-east-1      = "ami-690c467e"
+    us-east-1      = "ami-cea964b4" //changed for 25 license
     us-east-2      = "ami-811248e4"
     us-west-1      = "ami-43206823"
     us-west-2      = "ami-03558e63"

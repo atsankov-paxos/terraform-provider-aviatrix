@@ -1,15 +1,3 @@
-variable "region" {}
-
-variable "master-account-id" {
-  default = "false"
-}
-data "aws_caller_identity" "current" {}
-
-#Define the region
-provider "aws" {
-  region     = "${var.region}"
-}
-
 # Roles
 
 resource "aws_iam_role" "aviatrix-role-ec2" {
@@ -246,6 +234,7 @@ resource "aws_iam_policy" "aviatrix-app-policy" {
               "sqs:ReceiveMessage",
               "sqs:RemovePermission",
               "sqs:SendMessage",
+              "sqs:TaqQueue",
               "sqs:SetQueueAttributes"
           ],
           "Resource": "*"

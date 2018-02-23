@@ -14,10 +14,10 @@ variable "aws_account_number" {
   default = "174981058713"
 }
 
-variable "private_ip" {
+variable "controller_private_ip" {
   default = "10.100.0.229"
 }
 
-variable "public_ip" {
+variable "controller_public_ip" {
   default = "35.172.112.135"
 }

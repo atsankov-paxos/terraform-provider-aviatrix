@@ -1,11 +1,11 @@
 # Edit to enter your controller's IP, username and password to login with.
 provider "aviatrix" {
-  controller_ip = "${var.public_ip}"
+  controller_ip = "${var.controller_public_ip}"
   username = "admin"
-  password = "${var.private_ip}"
+  password = "${var.controller_private_ip}"
 }
 
-resource "aviatrix_account" "okta" {
+resource "aviatrix_account" "sso_account" {
   account_name = "${var.sso_account_username}"
   account_password = "${var.sso_account_pw}"
   account_email = "${var.sso_account_email}"
